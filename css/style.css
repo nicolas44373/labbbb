@@ -1,0 +1,306 @@
+/* css/style.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #28a745;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el contenido principal */
+main.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+main h1 {
+    color: #28a745;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* Estilos para formularios */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+/* Estilos para los botones del formulario */
+form button,
+form .btn-primary,
+form .btn-secondary {
+    padding: 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form button:hover,
+form .btn-primary:hover {
+    background-color: #218838;
+}
+
+form .btn-secondary {
+    background-color: #6c757d;
+    padding: 10px 15px;
+    font-size: 0.9em;
+}
+
+form .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos para los mensajes de alerta */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.alert.success {
+    background-color: #28a745;
+}
+
+.alert.error {
+    background-color: #dc3545;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border-top: 5px solid #28a745;
+    margin-top: 560px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para los enlaces en el encabezado */
+header nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para los formularios de inicio de sesión y registro */
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Estilos para el formulario de perfil */
+form input[type="text"],
+form textarea,
+form select {
+    font-size: 1em;
+}
+
+/* Estilos específicos para el formulario de creación de publicación */
+form textarea {
+    resize: vertical;
+}
+
+/* Estilos para el select de categorías */
+form select {
+    height: 150px;
+}
+
+/* Estilos para los elementos de la lista de publicaciones */
+ul.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.post-list .post-item {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+}
+
+ul.post-list .post-item:last-child {
+    border-bottom: none;
+}
+
+ul.post-list .post-item h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+ul.post-list .post-item small {
+    display: block;
+    margin-top: 10px;
+    color: #6c757d;
+}
+
+ul.post-list .post-item .post-actions {
+    margin-top: 10px;
+}
+
+ul.post-list .post-item .btn-primary {
+    background-color: #dbecff;
+    margin-right: 10px;
+}
+
+ul.post-list .post-item .btn-primary:hover {
+    background-color: #cbe4ff;
+}
+
+/* Estilos para los formularios en la página de perfil */
+main form {
+    padding: 0;
+}
+
+/* Estilos para los enlaces en el contenido principal */
+main p a {
+    color: #ffffff;
+}
+
+main p a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la lista de comentarios */
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-list .comment-item {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+}
+
+.comment-list .comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-list .comment-item p {
+    margin: 0;
+}
+
+.comment-list .comment-item small {
+    display: block;
+    margin-top: 10px;
+    color: #6c757d;
+}
+
+/* Estilos para la lista de categorías */
+.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.category-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.category-list li:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para el formulario de creación de categoría */
+form input[type="text"] {
+    font-size: 1em;
+}
+
+/* Estilos para los botones de la página de creación de categoría */
+form .btn-primary {
+    background-color: #28a745;
+    padding: 15px;
+    font-size: 1em;
+}
+
+form .btn-primary:hover {
+    background-color: #218838;
+}
+
+form .btn-secondary {
+    background-color: #6c757d;
+    padding: 10px 15px;
+    font-size: 0.9em;
+}
+
+form .btn-secondary:hover {
+    background-color: #5a6268;
+}

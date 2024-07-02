@@ -18,15 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO comments (post_id, user_id, comment) VALUES ('$post_id', '$user_id', '$comment')";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'Comentario agregado con éxito. <a href="view_comments.php?post_id=' . $post_id . '">Ver Comentarios</a> | <a href="index.php">Volver a la página principal</a>';
+        echo '<div class="alert success">Comentario agregado con éxito. <a href="view_comments.php?post_id=' . $post_id . '">Ver Comentarios</a> | <a href="index.php">Volver a la página principal</a></div>';
     } else {
-        echo "Error: " . $conn->error;
+        echo '<div class="alert error">Error: ' . $conn->error . '</div>';
     }
 } else if (isset($_GET['post_id'])) {
     $post_id = $_GET['post_id'];
     $post_id = intval($post_id);
 } else {
-    echo 'No se proporcionó un ID de publicación.';
+    echo '<div class="alert error">No se proporcionó un ID de publicación.</div>';
     exit();
 }
 ?>
@@ -36,18 +36,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Agregar Comentario</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Agregar Comentario</h1>
-    <form method="post" action="add_comment.php">
-        <input type="hidden" name="post_id" value="<?php echo $post_id; ?>" />
-        <label>Comentario:</label>
-        <textarea name="comment" rows="5" required></textarea>
+    <header>
+        <h1>Agregar Comentario</h1>
+        <nav>
+            <a href="index.php">Inicio</a> |
+            <a href="profile.php">Ver/Editar Perfil</a> |
+            <a href="create_post.php">Crear Publicación</a> |
+            <a href="view_posts.php">Ver Publicaciones</a> |
+            <a href="view_categories.php">Ver Categorías</a> |
+            <a href="logout.php">Cerrar Sesión</a>
+        </nav>
+    </header>
+    <main class="container">
+        <form method="post" action="add_comment.php">
+            <input type="hidden" name="post_id" value="<?php echo $post_id; ?>" />
+            <label>Comentario:</label>
+            <textarea name="comment" rows="5" required></textarea>
+            <br>
+            <button type="submit">Agregar Comentario</button>
+        </form>
         <br>
-        <button type="submit">Agregar Comentario</button>
-    </form>
-    <br>
-    <a href="view_comments.php?post_id=<?php echo $post_id; ?>">Ver Comentarios</a> |
-    <a href="index.php">Volver a la página principal</a>
+        <a class="btn-secondary" href="view_comments.php?post_id=<?php echo $post_id; ?>">Ver Comentarios</a> |
+        <a class="btn-secondary" href="index.php">Volver a la página principal</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>

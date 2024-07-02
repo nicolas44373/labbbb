@@ -19,15 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                echo 'Inicio de sesión exitoso. <a href="index.php">Volver a la página principal</a>';
+                header("Location: index.php");
+                exit();
             } else {
-                echo 'Por favor, confirma tu correo electrónico.';
+                $alert_message = 'Por favor, confirma tu correo electrónico.';
             }
         } else {
-            echo 'Contraseña incorrecta.';
+            $alert_message = 'Contraseña incorrecta.';
         }
     } else {
-        echo 'El correo electrónico no está registrado.';
+        $alert_message = 'El correo electrónico no está registrado.';
     }
 }
 ?>
@@ -37,17 +38,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Iniciar Sesión</h1>
-    <form method="post" action="login.php">
-        <label>Correo Electrónico:</label>
-        <input type="email" name="email" required />
-        <br>
-        <label>Contraseña:</label>
-        <input type="password" name="password" required />
-        <br>
-        <button type="submit">Iniciar Sesión</button>
-    </form>
+    <header>
+        <div class="container">
+            <h1>Iniciar Sesión</h1>
+            <nav>
+                <a href="index.php">Página de Inicio</a>
+                <a href="register.php">Registro</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <form method="post" action="login.php">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required />
+
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <?php if (isset($alert_message)): ?>
+            <div class="alert error"><?php echo htmlspecialchars($alert_message); ?></div>
+        <?php endif; ?>
+        <p>¿No tienes una cuenta? <a href="register.php">Regístrate</a></p>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; <?php echo date('Y'); ?> blog mundial. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
